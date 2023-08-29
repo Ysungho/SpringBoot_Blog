@@ -15,6 +15,7 @@
   <div class="row">
     <div class="col-lg-8">
       <article>
+        <!--아이디 정보 저장-->
         <input type="hidden" id="article-id" th:value="${article.id}">
 
         <header class="mb-4">
@@ -23,6 +24,10 @@
         <section class="mb-5">
           <textarea class="form-control h-25" rows="10" placeholder="내용" id="content" th:text="${article.content}"></textarea>
         </section>
+        <!--id가 있을 때는 [수정] 버튼을, 없을 때는 [등록] 버튼이 보이게 함-->
+        <!--수정할 때는 id가 필요하므로 input 엘리먼트의 type을 hidden으로 설정해 엘리먼트를 숨깁니다.-->
+
+        <!--th:value로 글의 id를 저장하고, th:if로 id가 있을 땐 [수정] 버튼, 없을 땐 [등록] 버튼이 나타나도록 합니다. -->
         <button th:if="${article.id} != null" type="button" id="modify-btn" class="btn btn-primary btn-sm">수정</button>
         <button th:if="${article.id} == null" type="button" id="create-btn" class="btn btn-primary btn-sm">등록</button>
       </article>

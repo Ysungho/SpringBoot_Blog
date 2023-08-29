@@ -4,6 +4,7 @@ import lombok.Getter;
 import my.blog.bootdev.domain.Article;
 
 
+//뷰에게 데이터를 전달하기 위한 객체파일
 @Getter
 public class ArticleListViewResponse {
 

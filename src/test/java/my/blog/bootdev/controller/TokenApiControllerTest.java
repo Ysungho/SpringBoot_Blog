@@ -62,7 +62,8 @@ class TokenApiControllerTest {
     @DisplayName("createNewAccessToken: 새로운 액세스 토큰을 발급한다.")
     @Test
     public void createNewAccessToken() throws Exception {
-        // given
+        // given: 테스트 유져를 생성하고, jjwt 라이브러리를 이용해 리프레시 토큰을 만들어 데이터베이스에 저장합니다.
+        // 토큰 생성 api의 요청 본분에 리프레시 토큰을 포함하여 요청 객체를 생성합니다.
         final String url = "/api/token";
 
         User testUser = userRepository.save(User.builder()
@@ -81,12 +82,12 @@ class TokenApiControllerTest {
         request.setRefreshToken(refreshToekn);
         final String requestBody = objectMapper.writeValueAsString(request);
 
-        // when
+        // when: 토큰 추가 api에 요청을 보냅니다. 이때 요청 타입은 json이며, given 절에서 미리 만들어둔 객체를 요청 본문으로 함께 보냅니다.
         ResultActions resultActions = mockMvc.perform(post(url)
                 .contentType(MediaType.APPLICATION_JSON_VALUE)
                 .content(requestBody));
 
-        // then
+        // then: 응답 코드가 201 created 인지 확인하고 응답으로 액세스 토큰이 비어있지 않은지 확인합니다.
         resultActions
                 .andExpect(status().isCreated())
                 .andExpect(jsonPath("$.accessToken").isNotEmpty());

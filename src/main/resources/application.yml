@@ -5,10 +5,10 @@ spring:
       hibernate:
         format_sql: true
     defer-datasource-initialization: true
-  datasource:
+  datasource: #데이터베이스 정보 추가
     url: jdbc:h2:mem:testdb
     username: sa
-  h2:
+  h2: #h2 콘솔 활성화
     console:
       enabled: true
   security:
@@ -16,11 +16,11 @@ spring:
       client:
         registration:
           google:
-            client-id: 220822189293-79bi77iur27ipr6h7qeu4d6er3sbplc9.apps.googleusercontent.com
-            client-secret: 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
+            client-id: 보안
+            client-secret: 보안
             scope:
               - email
               - profile
 jwt:
-  issuer: ysh01022320@gmail.com
+  issuer: 보안
   secret_key: springboot-blog

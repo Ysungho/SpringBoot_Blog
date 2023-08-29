@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 @Setter
 @Getter
 @Component
-@ConfigurationProperties("jwt")
+@ConfigurationProperties("jwt")//자바 클래스에 프로터티 값을 가져와서 사용하는 애너테이션
 public class JwtProperties {
 
     private String issuer;

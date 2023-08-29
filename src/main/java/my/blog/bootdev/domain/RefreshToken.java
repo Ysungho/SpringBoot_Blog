@@ -5,6 +5,12 @@ import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+// 엔티티와 매핑되는 테이블 구조
+// 칼럼명-자료형-null허용여부-키-설명
+// id-BIGINT-N-기본키-일련번호, 기본키
+// user_id-BIGING-N-X-유저ID
+// refresh_token-VARCHAR(255)-N-X-토큰 값
+
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
 @Entity

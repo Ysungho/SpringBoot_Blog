@@ -7,6 +7,8 @@ import my.blog.bootdev.domain.Article;
 
 import java.time.LocalDateTime;
 
+//뷰에서 사용할 dto
+
 @NoArgsConstructor
 @Getter
 public class ArticleViewResponse {

@@ -23,7 +23,7 @@ public class JwtFactory {
 
     private Map<String, Object> claims = emptyMap();
 
-    @Builder
+    @Builder//빌더 패턴을 사용해 설정이 필요한 데이터만 선택 진행
     public JwtFactory(String subject, Date issuedAt, Date expiration,
                       Map<String, Object> claims) {
         this.subject = subject != null ? subject : this.subject;
@@ -36,7 +36,7 @@ public class JwtFactory {
         return JwtFactory.builder().build();
     }
 
-    public String createToken(JwtProperties jwtProperties) {
+    public String createToken(JwtProperties jwtProperties) {//jwt라이브러리를 사용해 JWT 토큰 생성
         return Jwts.builder()
                 .setSubject(subject)
                 .setHeaderParam(Header.TYPE, Header.JWT_TYPE)
@@ -47,4 +47,5 @@ public class JwtFactory {
                 .signWith(SignatureAlgorithm.HS256, jwtProperties.getSecretKey())
                 .compact();
     }
+    //빌더 패턴을 사용해 객체를 만들 때 테스트가 필요한 데이터만 선택합니다. 빌더 패턴을 사용하지 않으면 필드 기본값을 사용합니다.
 }
